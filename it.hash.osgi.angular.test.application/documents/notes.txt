@@ -1,0 +1,18 @@
+Per creare in Eclipse un workspace per progetti OSGiEnRoute e agganciare repo GIT
+
+1: clonare nel file system locale il repo GIT di base:
+   posizionarsi nella cartella in cui cfreare il repo GIT locale:
+   
+>git clone --depth 1 --single-branch --branch=master https://github.com/osgi/workspace it.hash.osgi.test
+>cd it.hash.osgi.test
+>remove -rf .git   // per rimuovere la cartella .git con tutto il suo contenuto
+>git init
+
+2: creare nel file system locale una cartella per il workspace di Eclipse
+3: avviare Eclipse e posizionarlo nel suddetto workspace
+
+4: importare "Existing Project into Workspace" selezionandolo dal repo GIT locale
+5: selezionare in Eclipse la prospettiva Bndtools
+5: creare nel proprio profilo su GITHub un nuovo repository
+6: in Eclipse fare il push indicando l'URL del repo su GITHub con le credenziali (username/password)
+...

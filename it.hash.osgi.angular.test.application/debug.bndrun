@@ -1,0 +1,12 @@
+#
+# TEST APPLICATION DEBUG RUN SPECIFICATION
+#
+
+-include: ~it.hash.osgi.angular.test.bndrun
+
+-runrequires.debug:  ${debug-bundles}
+
+-runtrace: true
+
+-runbundles: \
+	${error;Resolve first}

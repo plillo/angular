@@ -1,0 +1,17 @@
+#
+#  RUN SPECIFICATION
+#
+
+
+Bundle-Version:				1.0.0.${tstamp}
+Bundle-SymbolicName:		it.hash.osgi.angular.test.application.launch
+JPM-Command:					test
+
+
+-runfw:						org.eclipse.osgi
+
+-runrequires:  \
+	osgi.identity;filter:='(osgi.identity=it.hash.osgi.angular.test.application)'
+
+-runbundles: \
+	${error;Resolve first}
