@@ -16,3 +16,4 @@ Per creare in Eclipse un workspace per progetti OSGiEnRoute e agganciare repo GI
 5: creare nel proprio profilo su GITHub un nuovo repository
 6: in Eclipse fare il push indicando l'URL del repo su GITHub con le credenziali (username/password)
 ...
+TODO: vedere come si può configurare TRAVIS per CI (continous integration: automatizzare i test, il rilascio, ecc...)
