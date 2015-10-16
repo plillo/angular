@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="width=device-width" name="viewport">
+<meta charset="utf-8">
+<title>Locations - STOMP Example</title>
+</head>
+<body>
+	<h1>Locations - STOMP Example</h1>
+	<form id='connect_form'>
+		<fieldset>
+			<label>WebSocket URL</label> <input name=url id='connect_url' value='ws://localhost:61614' type="text">
+			<button id='connect_button' type="submit">Connect</button>
+			<button type="button" id='disconnect_button' disabled>Disconnect</button>
+		</fieldset>
+	</form>
+	<form id="text_form" style="display: none;">
+		<fieldset>
+			<legend>Send Text</legend>
+			Device: <select id="deviceID"></select> <br> Text: <input
+				id='text' size=64 placeholder="type the text to sent to the device"
+				type="text"> <br>
+			<button id='text_submit' type="submit">Send</button>
+		</fieldset>
+	</form>
+	<hr>
+	<div id="map-canvas" style="height: 512px; width: 100%; padding: 0; margin: 0"></div>
+	<footer>
+		&copy; 2014 <a href="http://mobile-web-messaging.net">Mobile &amp;Web Messaging</a>
+	</footer>
+	<!-- Scripts placed at the end of the document so the pages load faster -->
+<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.1/stomp.js"></script>
+
+<script>
+$(document).ready(function() {
+    // handles the connect_form
+	$('#connect_form').submit(function() {
+		var url = $("#connect_url").val();
+		connect(url);
+		return false;
+	});
+
+	// connection to the STOMP broker
+	// and subscription to the device's position destinations
+	//
+	// the url paramater is the Web Socket URL of the STOMP broker
+	function connect(url) {
+		// callback if successfully connected to the STOMP broker
+		var connectedCallback = function(frame) {
+			client.debug("connected to Stomp");
+			$("#connect_button").prop("disabled",true);
+			$("#disconnect_button").prop("disabled",false);
+			$("#text_form").show();
+			
+            // ...
+		};
+
+		// create the STOMP client
+		client = Stomp.client(url);
+
+		// and connect to the STOMP broker
+		client.connect({}, connectedCallback);
+	}
+});
+</script>
+</body>
+</html>
