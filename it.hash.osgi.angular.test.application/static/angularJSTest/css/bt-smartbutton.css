@@ -4,7 +4,7 @@ div.bt-smartbutton {
 	background-color: #AAAAAA;
 	color: #FFFFFF;
 	cursor: pointer;
-	margin: 1px 0 0 -3px;
+	margin: 1px 0 0 1px;
 }
 
 div.bt-smartbutton div.bt-label {
